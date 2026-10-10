@@ -71,6 +71,13 @@
   .sw { flex: none; width: 26px; height: 6px; border-radius: 3px; }
   .sw.dash { background: repeating-linear-gradient(90deg, #6d6d6d 0 6px, transparent 6px 10px); height: 3px; }
 
+  .about { border-top: 1px solid var(--line); padding-top: 8px; }
+  .about summary { cursor: pointer; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); list-style: none; display: flex; align-items: center; gap: 6px; }
+  .about summary::-webkit-details-marker { display: none; }
+  .about summary::before { content: "\25B8"; font-size: 11px; transition: transform 0.15s; }
+  .about[open] summary::before { transform: rotate(90deg); }
+  .about p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.5; }
+  .about p + p { margin-top: 6px; }
   .note { color: var(--muted); font-size: 11.5px; margin: 0; border-top: 1px solid var(--line); padding-top: 8px; }
   .note a { color: var(--accent); }
 
@@ -136,6 +143,12 @@
       <div class="key"><span class="sw" style="background:#d9a883"></span>I-80 and I-81</div>
       <div class="key"><span class="sw" style="background:#c9b66a"></span>County lines</div>
     </div>
+
+    <details class="about" id="about">
+      <summary>How this map was made</summary>
+      <p>PPL's open-house flyer is just a picture of a map, with no coordinates attached. To pin it to the real world, landmarks visible on the flyer, mainly the paths of I-80 and I-81, were matched against the known GPS positions of those same highways from OpenStreetMap. That tells us exactly how to stretch, shift and slightly rotate the picture so everything lines up.</p>
+      <p>The flyer is then shown as a see-through layer on top of Google's satellite imagery. Slide the opacity up or down and zoom in to see which fields, roads and neighborhoods sit under each proposed route.</p>
+    </details>
 
     <p class="note">Alignment was fitted to the I-80 and I-81 centerlines (including a 1° correction for scan tilt) and checked against county lines and the Harwood Substation. Expect up to about 0.1 mile of positional error, mostly near the map edges. The route bands on the flyer are schematic corridors, not surveyed centerlines.</p>
     <p class="note"><a href="kelayres_500kv_overlay.kmz" download>Download for Google Earth (KMZ)</a> &middot; Map source: PPL Electric Utilities open-house notice, October 2026.</p>
